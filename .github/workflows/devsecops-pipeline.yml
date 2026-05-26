@@ -49,7 +49,7 @@ jobs:
             --source="/repo" \
             --config="/repo/.gitleaks.toml" \
             --no-git \
-            --redact=false \
+            --redact=0 \
             --report-format=json \
             --report-path="/repo/gitleaks-report.json" \
             --exit-code=1
