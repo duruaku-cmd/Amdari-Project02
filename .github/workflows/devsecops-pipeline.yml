@@ -37,4 +37,4 @@ jobs:
         env:
           GITLEAKS_ENABLE_UPLOAD_ARTIFACT: true
         with:
-          args: detect --source . --log-opts="--all" --report-format json --report-path gitleaks-report.json --exit-code 1
+          args: detect --source . --config .gitleaks.toml --log-opts="--all" --report-format json --report-path gitleaks-report.json --exit-code 1
