@@ -22,19 +22,19 @@ jobs:
       - name: Confirm pipeline is running
         run: echo "SecureFlow DevSecOps pipeline skeleton is working"
 
-gitleaks:
-  name: Stage 1 - Gitleaks Secret Scan
-  runs-on: ubuntu-latest
+  gitleaks:
+    name: Stage 1 - Gitleaks Secret Scan
+    runs-on: ubuntu-latest
 
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-    - name: Run Gitleaks full history scan
-      uses: gitleaks/gitleaks-action@v2
-      env:
-        GITLEAKS_ENABLE_UPLOAD_ARTIFACT: true
-      with:
-        args: detect --source . --log-opts="--all" --report-format json --report-path gitleaks-report.json --exit-code 1
+      - name: Run Gitleaks full history scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITLEAKS_ENABLE_UPLOAD_ARTIFACT: true
+        with:
+          args: detect --source . --log-opts="--all" --report-format json --report-path gitleaks-report.json --exit-code 1
