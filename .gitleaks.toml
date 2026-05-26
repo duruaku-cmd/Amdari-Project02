@@ -1,0 +1,25 @@
+title = "SecureFlow Custom Gitleaks Rules"
+
+[[rules]]
+id = "secureflow-jwt-secret"
+description = "Detect hardcoded JWT secrets"
+regex = '''(?i)(jwt_secret|secret_key)\s*[:=]\s*["']?[A-Za-z0-9_\-]{8,}["']?'''
+secretGroup = 0
+
+[[rules]]
+id = "secureflow-session-secret"
+description = "Detect hardcoded Flask session secrets"
+regex = '''(?i)(session_secret|session_key)\s*[:=]\s*["']?[A-Za-z0-9_\-]{6,}["']?'''
+secretGroup = 0
+
+[[rules]]
+id = "secureflow-db-password"
+description = "Detect hardcoded database passwords"
+regex = '''(?i)(db_password|postgres_password|database_password)\s*[:=]\s*["']?[^"'\s]+["']?'''
+secretGroup = 0
+
+[[rules]]
+id = "secureflow-aws-access-key"
+description = "Detect AWS access key IDs"
+regex = '''AKIA[0-9A-Z]{16}'''
+secretGroup = 0
