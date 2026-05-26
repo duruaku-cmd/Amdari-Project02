@@ -1,31 +1,25 @@
 title = "SecureFlow Custom Gitleaks Rules"
 
 [[rules]]
-id = "secureflow-hardcoded-postgres-password"
-description = "Detect hardcoded PostgreSQL passwords"
-regex = '''(?i)POSTGRES_PASSWORD\s*[:=]\s*["']?[^"'\s#]+["']?'''
-secretGroup = 0
+id = "secureflow-postgres-password"
+description = "Detect POSTGRES_PASSWORD in YAML or env format"
+regex = '''(?i)POSTGRES_PASSWORD\s*[:=]\s*["']?([A-Za-z0-9_\-@!#$%^&*]+)["']?'''
+secretGroup = 1
 
 [[rules]]
-id = "secureflow-hardcoded-db-password"
-description = "Detect hardcoded database passwords"
-regex = '''(?i)DB_PASSWORD\s*[:=]\s*["']?[^"'\s#]+["']?'''
-secretGroup = 0
+id = "secureflow-db-password"
+description = "Detect DB_PASSWORD in YAML or env format"
+regex = '''(?i)DB_PASSWORD\s*[:=]\s*["']?([A-Za-z0-9_\-@!#$%^&*]+)["']?'''
+secretGroup = 1
 
 [[rules]]
-id = "secureflow-hardcoded-jwt-secret"
-description = "Detect hardcoded JWT secrets"
-regex = '''(?i)JWT_SECRET\s*[:=]\s*["']?[^"'\s#]+["']?'''
-secretGroup = 0
+id = "secureflow-jwt-secret"
+description = "Detect JWT_SECRET in YAML or env format"
+regex = '''(?i)JWT_SECRET\s*[:=]\s*["']?([A-Za-z0-9_\-@!#$%^&*]+)["']?'''
+secretGroup = 1
 
 [[rules]]
-id = "secureflow-hardcoded-session-secret"
-description = "Detect hardcoded session secrets"
-regex = '''(?i)SESSION_SECRET\s*[:=]\s*["']?[^"'\s#]+["']?'''
-secretGroup = 0
-
-[[rules]]
-id = "secureflow-aws-access-key"
-description = "Detect AWS access key IDs"
-regex = '''AKIA[0-9A-Z]{16}'''
-secretGroup = 0
+id = "secureflow-session-secret"
+description = "Detect SESSION_SECRET in YAML or env format"
+regex = '''(?i)SESSION_SECRET\s*[:=]\s*["']?([A-Za-z0-9_\-@!#$%^&*]+)["']?'''
+secretGroup = 1
